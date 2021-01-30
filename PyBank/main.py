@@ -17,6 +17,17 @@ greatest_incr = {}
 #   * The greatest decrease in losses (date and amount) over the entire period
 greatest_decr = {}
 
+file_path = "budget_data.csv"
+
+with open(file_path) as csvfile:
+    csvreader = csv.reader(csvfile)
+    csv_header = next(csvreader)
+    print(f"CSV Header: {csv_header}")
+
+    for row in csvreader:
+        print(row)
+
+
 # * As an example, your analysis should look similar to the one below:
 
 #   ```text
