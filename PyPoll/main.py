@@ -47,7 +47,17 @@ with open(file_path) as csvfile:
     cand4_percent = round((cand4_count / total_votes)*100)
 
     maxList = [cand1_percent, cand2_percent, cand3_percent, cand4_percent]
-    
+    Winning = max(maxList)
+    if Winning == cand1_percent:
+        Winner = cand1
+    elif Winning == cand2_percent:
+        Winner = cand2
+    elif Winning == cand3_percent:
+        Winner = cand3
+    elif Winning == cand4_percent:
+        Winner = cand4
+
+    print(Winner)
 
     #print(unique_candz)
 
