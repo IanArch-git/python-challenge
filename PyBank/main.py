@@ -3,6 +3,7 @@ total_months = 0
 total_pl = 0.00
 chgProfits = 0
 profit = 0
+avgAvg = 0
 
 profitList = []
 moChanges = []
@@ -24,9 +25,6 @@ with open(file_path) as csvfile:
         #Count months
         total_months = total_months + 1
         
-        #Add dates to new date list
-        date.append(row[0])
-        
         #Calc total PL
         total_pl = total_pl + int(row[PL])
 
@@ -37,9 +35,15 @@ with open(file_path) as csvfile:
         chgProfits = chgProfits + change
         profit = moNum
 
-    print(moChanges)
+    #print(moChanges)
 
+        #Calc avg change
+        avgAvg = chgProfits/total_months
 
+    #Add dates to new date list
+        date.append(row[0])
+
+    print(avgAvg)
 
 
     
