@@ -1,11 +1,13 @@
 
 total_months = 0
 total_pl = 0.00
-avg_pl = 0
-plList = []
-LastChange = 0
-greatest_incr = {}
-greatest_decr = {}
+chgProfits = 0
+profit = 0
+
+profitList = []
+moChanges = []
+date = []
+
 
 import csv
 file_path = "budget_data.csv"
@@ -19,9 +21,28 @@ with open(file_path) as csvfile:
     PL = csv_header.index('Profit/Losses')
 
     for row in csvreader:
+        #Count months
         total_months = total_months + 1
         
+        #Add dates to new date list
+        date.append(row[0])
+        
+        #Calc total PL
         total_pl = total_pl + int(row[PL])
+
+        #Calc Monthly Change, store in list, reset for next row
+        moNum = float(row[1])
+        change = moNum - profit
+        moChanges.append(change)
+        chgProfits = chgProfits + change
+        profit = moNum
+
+    print(moChanges)
+
+
+
+
+    
    
 
     print("Financial Analysis")

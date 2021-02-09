@@ -29,15 +29,13 @@ with open(file_path) as csvfile:
     print(unique_candz)
 
 
-    for row in csvreader:
-        if row[Candidate] == unique_candz[0]:
-            votes_1 = votes_1 + 1
+    # for row in csvreader:
+    #     if row[Candidate] == unique_candz[0]:
+    #         votes_1 = votes_1 + 1
         
 
-    print(f"{unique_candz[0]} : {votes_1}")
+    # print(f"{unique_candz[0]} : {votes_1}")
 
-
-    #print(f"List: {unique_candz}")
     print(f"Total Votes: {total_votes}")
     #print(f"Candidates list: {candz}")
     #print(f"{Candidates[1]} + {votePercentage[1]} + {voteNumbers[1]}") 
