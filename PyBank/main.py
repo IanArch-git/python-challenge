@@ -10,6 +10,7 @@ total_pl = 0.00
 
 # #   * Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
 avg_pl = 0.00
+plList = []
 
 # #   * The greatest increase in profits (date and amount) over the entire period
 greatest_incr = {}
@@ -25,15 +26,30 @@ with open(file_path) as csvfile:
     csv_header = next(csvreader)
     #print(f"CSV Header: {csv_header}")
 
+    Date = csv_header.index('Date')
+    PL = csv_header.index('Profit/Losses')
+
+
+
     for row in csvreader:
         total_months = total_months + 1
-        #print(row)
+        
+        total_pl = total_pl + int(row[PL])
 
+     
+
+    # for row in csvreader:
+    #     currChange = int(row[PL]) - avg_pl
+    #     plList.append(currChange)
+    #     avg_pl =  int(row[PL])
+    # print(f"list: {plList}")
 
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {total_months}")
-    # print(f"Total: {total_pl}")
+    print(f"Total: {total_pl}")
+    
+
     # print(f"Average Change: {avg_change}")
     # print(f"Greatest Increase in Profits: {greatest_incr}")
     # print(f"Greatest Decrease in Losses: {greatest_decr}")
