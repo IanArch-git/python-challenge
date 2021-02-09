@@ -14,15 +14,21 @@ with open(file_path) as csvfile:
     VoterID = csv_header.index('Voter ID')
     County = csv_header.index('County')
     Candidate = csv_header.index('Candidate')
+    candz = []
 
     for row in csvreader:
         total_votes = total_votes + 1
-    
-    print(f"Total Votes: {total_votes}")
-        
-        #total_pl = total_pl + int(row[PL])
+        candz.append(str(row[Candidate]))
 
-#   * The total number of votes cast
+    #Return only unique values from candz list
+    unique_candz = list(set(candz))
+
+    #print(unique_candz.index("O'Tooley"))
+
+    #print(f"List: {unique_candz}")
+    print(f"Total Votes: {total_votes}")
+    #print(f"Candidates list: {candz}")
+    #print(f"{Candidates[1]} + {votePercentage[1]} + {voteNumbers[1]}") 
 
 
 #   * A complete list of candidates who received votes
