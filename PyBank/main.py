@@ -34,11 +34,6 @@ with open(file_path) as csvfile:
         chgProfits = chgProfits + change
         profit = moNum
 
-        #Remove change for first row as there is no data before
-
-        #Calc avg change
-        avgAvg = chgProfits/total_months
-
         #Add dates to new date list
         date.append(row[0])
 
@@ -48,15 +43,21 @@ with open(file_path) as csvfile:
         grDecr = min(moChanges)
         decrDate = date[moChanges.index(grDecr)]
 
+    #Remove change for first row of changes as there is no data before   
+    final_moChanges = moChanges[1:86]
+    #print(final_moChanges)
+
+    avg_final = sum(final_moChanges) / len(final_moChanges)
+    #print(avg_final)
     
 
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {total_months}")
-    print(f"Total: {int(total_pl)}")
-    print(f"Average Change: {str(round(avgAvg,2))}")
-    print(f"Greatest Increase in Profits: {incrDate} ({grIncr})")
-    print(f"Greatest Decrease in Losses: {decrDate} ({grDecr})")
+    print(f"Total: ${int(total_pl)}")
+    print(f"Average Change: ${str(round(avg_final,2))}")
+    print(f"Greatest Increase in Profits: {incrDate} (${int(grIncr)})")
+    print(f"Greatest Decrease in Losses: {decrDate} (${int(grDecr)})")
     print("----------------------------")
 
 
