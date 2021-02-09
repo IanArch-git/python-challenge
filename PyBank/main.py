@@ -1,21 +1,10 @@
-# * In this challenge, you are tasked with creating a Python script for analyzing the financial records of your company. You will give a set of financial data called [budget_data.csv](PyBank/Resources/budget_data.csv). The dataset is composed of two columns: `Date` and `Profit/Losses`. (Thankfully, your company has rather lax standards for accounting so the records are simple.)
 
-# * Your task is to create a Python script that analyzes the records to calculate each of the following:
-
-#   * The total number of months included in the dataset
 total_months = 0
-
-# #   * The net total amount of "Profit/Losses" over the entire period
 total_pl = 0.00
-
-# #   * Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
-avg_pl = 0.00
+avg_pl = 0
 plList = []
-
-# #   * The greatest increase in profits (date and amount) over the entire period
+LastChange = 0
 greatest_incr = {}
-
-# #   * The greatest decrease in losses (date and amount) over the entire period
 greatest_decr = {}
 
 import csv
@@ -29,27 +18,16 @@ with open(file_path) as csvfile:
     Date = csv_header.index('Date')
     PL = csv_header.index('Profit/Losses')
 
-
-
     for row in csvreader:
         total_months = total_months + 1
         
         total_pl = total_pl + int(row[PL])
-
-     
-
-    # for row in csvreader:
-    #     currChange = int(row[PL]) - avg_pl
-    #     plList.append(currChange)
-    #     avg_pl =  int(row[PL])
-    # print(f"list: {plList}")
+   
 
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {total_months}")
     print(f"Total: {total_pl}")
-    
-
     # print(f"Average Change: {avg_change}")
     # print(f"Greatest Increase in Profits: {greatest_incr}")
     # print(f"Greatest Decrease in Losses: {greatest_decr}")
