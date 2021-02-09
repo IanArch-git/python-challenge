@@ -46,20 +46,18 @@ with open(file_path) as csvfile:
         grIncr = max(moChanges)
         incrDate = date[moChanges.index(grIncr)]
         grDecr = min(moChanges)
+        decrDate = date[moChanges.index(grDecr)]
 
-
-    print(grIncr)
-    print(incrDate)
-    print(grDecr)
+    
 
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {total_months}")
-    print(f"Total: {total_pl}")
-    print(f"Average Change: {avgAvg}")
-    # print(f"Greatest Increase in Profits: {greatest_incr}")
-    # print(f"Greatest Decrease in Losses: {greatest_decr}")
-    # print("----------------------------")
+    print(f"Total: {int(total_pl)}")
+    print(f"Average Change: {str(round(avgAvg,2))}")
+    print(f"Greatest Increase in Profits: {incrDate} ({grIncr})")
+    print(f"Greatest Decrease in Losses: {decrDate} ({grDecr})")
+    print("----------------------------")
 
 
 
