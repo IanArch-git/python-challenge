@@ -4,7 +4,6 @@ total_pl = 0.00
 chgProfits = 0
 profit = 0
 
-profitList = []
 moChanges = []
 date = []
 
@@ -15,7 +14,7 @@ file_path = "budget_data.csv"
 with open(file_path) as csvfile:
     csvreader = csv.reader(csvfile)
     csv_header = next(csvreader)
-    #print(f"CSV Header: {csv_header}")
+    
 
     Date = csv_header.index('Date')
     PL = csv_header.index('Profit/Losses')
@@ -45,11 +44,7 @@ with open(file_path) as csvfile:
 
     #Remove change for first row of changes as there is no data before   
     final_moChanges = moChanges[1:86]
-    #print(final_moChanges)
-
     avg_final = sum(final_moChanges) / len(final_moChanges)
-    #print(avg_final)
-    
 
     print("Financial Analysis")
     print("----------------------------")
@@ -61,18 +56,5 @@ with open(file_path) as csvfile:
     print("----------------------------")
 
 
-
-
-# * As an example, your analysis should look similar to the one below:
-
-#   ```text
-#   Financial Analysis
-#   ----------------------------
-#   Total Months: 86
-#   Total: $38382578
-#   Average  Change: $-2315.12
-#   Greatest Increase in Profits: Feb-2012 ($1926159)
-#   Greatest Decrease in Profits: Sep-2013 ($-2196167)
-#   ```
 
 # * In addition, your final script should both print the analysis to the terminal and export a text file with the results.

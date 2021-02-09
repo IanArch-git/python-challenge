@@ -1,10 +1,9 @@
 # * You will be give a set of poll data called [election_data.csv](PyPoll/Resources/election_data.csv). The dataset is composed of three columns: `Voter ID`, `County`, and `Candidate`. Your task is to create a Python script that analyzes the votes and calculates each of the following:
 
 total_votes = 0
-votes_1 = 0
-votes_2 = 0
-votes_3 = 0 
-votes_4 = 0
+candVotes = []
+candPercent = []
+
 
 import csv
 file_path = "election_data.csv"
@@ -12,7 +11,7 @@ file_path = "election_data.csv"
 with open(file_path) as csvfile:
     csvreader = csv.reader(csvfile)
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
 
     VoterID = csv_header.index('Voter ID')
     County = csv_header.index('County')
@@ -20,25 +19,36 @@ with open(file_path) as csvfile:
     candz = []
 
     for row in csvreader:
+        #Count votes
         total_votes = total_votes + 1
+        
+        #Count candidates and add to list
         candz.append(str(row[Candidate]))
 
     #Return only unique values from candz list
     unique_candz = list(set(candz))
 
-    print(unique_candz)
+    #Count candidates from candz list
+    cand1 = unique_candz[0]
+    cand1_count = candz.count(cand1)
 
+    cand2 = unique_candz[1]
+    cand2_count = candz.count(cand2)
 
-    # for row in csvreader:
-    #     if row[Candidate] == unique_candz[0]:
-    #         votes_1 = votes_1 + 1
-        
+    cand3 = unique_candz[2]
+    cand3_count = candz.count(cand3)
 
-    # print(f"{unique_candz[0]} : {votes_1}")
+    cand4 = unique_candz[3]
+    cand4_count = candz.count(cand4)
+
+     
+    #print(unique_candz)
 
     print(f"Total Votes: {total_votes}")
-    #print(f"Candidates list: {candz}")
-    #print(f"{Candidates[1]} + {votePercentage[1]} + {voteNumbers[1]}") 
+    print(f"{cand1}: {cand1_count}")
+    print(f"{cand2}: {cand2_count}")
+    print(f"{cand3}: {cand3_count}")
+    print(f"{cand4}: {cand4_count}") 
 
 
 #   * A complete list of candidates who received votes
