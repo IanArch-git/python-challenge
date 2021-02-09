@@ -3,7 +3,6 @@ total_months = 0
 total_pl = 0.00
 chgProfits = 0
 profit = 0
-avgAvg = 0
 
 profitList = []
 moChanges = []
@@ -35,25 +34,29 @@ with open(file_path) as csvfile:
         chgProfits = chgProfits + change
         profit = moNum
 
-    #print(moChanges)
+        #Remove change for first row as there is no data before
 
         #Calc avg change
         avgAvg = chgProfits/total_months
 
-    #Add dates to new date list
+        #Add dates to new date list
         date.append(row[0])
 
-    print(avgAvg)
+        #Greatest incr and decr
+        grIncr = max(moChanges)
+        grDecr = min(moChanges)
+
+        
 
 
-    
-   
+    print(grIncr)
+    print(grDecr)
 
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {total_months}")
     print(f"Total: {total_pl}")
-    # print(f"Average Change: {avg_change}")
+    print(f"Average Change: {avgAvg}")
     # print(f"Greatest Increase in Profits: {greatest_incr}")
     # print(f"Greatest Decrease in Losses: {greatest_decr}")
     # print("----------------------------")
