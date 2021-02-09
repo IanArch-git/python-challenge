@@ -23,13 +23,24 @@ file_path = "budget_data.csv"
 with open(file_path) as csvfile:
     csvreader = csv.reader(csvfile)
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
 
     for row in csvreader:
         total_months = total_months + 1
-        print(row)
+        #print(row)
 
-    print (total_months)
+
+    print("Financial Analysis")
+    print("----------------------------")
+    print(f"Total Months: {total_months}")
+    # print(f"Total: {total_pl}")
+    # print(f"Average Change: {avg_change}")
+    # print(f"Greatest Increase in Profits: {greatest_incr}")
+    # print(f"Greatest Decrease in Losses: {greatest_decr}")
+    # print("----------------------------")
+
+
+
 
 # * As an example, your analysis should look similar to the one below:
 
