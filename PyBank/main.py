@@ -44,12 +44,12 @@ with open(file_path) as csvfile:
 
         #Greatest incr and decr
         grIncr = max(moChanges)
+        incrDate = date[moChanges.index(grIncr)]
         grDecr = min(moChanges)
-
-        
 
 
     print(grIncr)
+    print(incrDate)
     print(grDecr)
 
     print("Financial Analysis")
