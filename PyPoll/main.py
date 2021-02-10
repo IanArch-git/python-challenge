@@ -2,7 +2,7 @@
 total_votes = 0
 
 import csv
-file_path = "election_data.csv"
+file_path = "./Resources/election_data.csv"
 
 with open(file_path) as csvfile:
     csvreader = csv.reader(csvfile)
@@ -83,9 +83,3 @@ with open(out_file, 'w') as outputFile:
     outputFile.write(f"Winner: {Winner}")
     outputFile.write("-------------------------")
    
-
-
-
-# * In addition, your final script should both print the analysis to the terminal and export a text file with the results.
-
-

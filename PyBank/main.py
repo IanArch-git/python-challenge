@@ -9,7 +9,7 @@ date = []
 
 
 import csv
-file_path = "budget_data.csv"
+file_path = "./Resources/budget_data.csv"
 
 with open(file_path) as csvfile:
     csvreader = csv.reader(csvfile)
@@ -66,4 +66,3 @@ with open(out_file, 'w') as outputFile:
     outputFile.write(f"Greatest Decrease in Losses: {decrDate} (${int(grDecr)})")
     outputFile.write("----------------------------")
 
-# * In addition, your final script should both print the analysis to the terminal and export a text file with the results.
