@@ -55,6 +55,15 @@ with open(file_path) as csvfile:
     print(f"Greatest Decrease in Losses: {decrDate} (${int(grDecr)})")
     print("----------------------------")
 
-
+out_file = "./Analysis/output.txt"
+with open(out_file, 'w') as outputFile:
+    outputFile.write("Financial Analysis")
+    outputFile.write("----------------------------")
+    outputFile.write(f"Total Months: {total_months}")
+    outputFile.write(f"Total: ${int(total_pl)}")
+    outputFile.write(f"Average Change: ${str(round(avg_final,2))}")
+    outputFile.write(f"Greatest Increase in Profits: {incrDate} (${int(grIncr)})")
+    outputFile.write(f"Greatest Decrease in Losses: {decrDate} (${int(grDecr)})")
+    outputFile.write("----------------------------")
 
 # * In addition, your final script should both print the analysis to the terminal and export a text file with the results.
